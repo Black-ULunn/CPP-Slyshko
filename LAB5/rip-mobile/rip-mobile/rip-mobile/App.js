@@ -1,12 +1,13 @@
 import { useState } from "react";
-import { Alert, StatusBar, StyleSheet, View } from "react-native";
+import { Alert, StatusBar, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Header from "../../LAB5/components/Header";
-import ApplicationForm from "../../LAB5/components/ApplicationForm";
-import ApplicationList from "../../LAB5/components/ApplicationList";
+import Header from "./components/Header";
+import ApplicationForm from "./components/ApplicationForm";
+import ApplicationList from "./components/ApplicationList";
 
 export default function App() {
   const [applications, setApplications] = useState([]);
+
 
   function addApplication(data) {
     const name = data.name.trim();
@@ -19,8 +20,8 @@ export default function App() {
     }
     if (digits.length < 10) {
       Alert.alert(
-        "Помилка-помилка",
-        "Введіть коректний номер телефону (щонайменше 10 цифр)."
+          "Помилка",
+          "Введіть коректний номер телефону (щонайменше 10 цифр)."
       );
       return false;
     }
@@ -43,44 +44,42 @@ export default function App() {
 
   function toggleApplication(id) {
     setApplications((currentApplications) =>
-      currentApplications.map((item) =>
-        item.id === id ? { ...item, done: !item.done } : item
-      )
+        currentApplications.map((item) =>
+            item.id === id ? { ...item, done: !item.done } : item
+        )
     );
   }
 
   function deleteApplication(id) {
     setApplications((currentApplications) =>
-      currentApplications.filter((item) => item.id !== id)
+        currentApplications.filter((item) => item.id !== id)
     );
-    Alert.alert("Видалення", "Заявку було видалено.");
+    Alert.alert("Видалення", "Заявку видалено.");
   }
 
   const doneCount = applications.filter((item) => item.done).length;
 
   return (
-    <SafeAreaView style={styles.safeArea}>
-      <StatusBar barStyle="dark-content" />
-      <View style={styles.container}>
-        <Header total={applications.length} done={doneCount} />
-        <ApplicationForm onAdd={addApplication} />
+      <SafeAreaView style={styles.safeArea}>
+        <StatusBar barStyle="light-content" />
         <ApplicationList
-          applications={applications}
-          onToggle={toggleApplication}
-          onDelete={deleteApplication}
+            applications={applications}
+            onToggle={toggleApplication}
+            onDelete={deleteApplication}
+            header={
+              <>
+                <Header total={applications.length} done={doneCount} />
+                <ApplicationForm onAdd={addApplication} />
+              </>
+            }
         />
-      </View>
-    </SafeAreaView>
+      </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: "#eff6ff",
-  },
-  container: {
-    flex: 1,
-    padding: 20,
+    backgroundColor: "#3d1f34",
   },
 });

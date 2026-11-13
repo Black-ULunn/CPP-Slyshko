@@ -1,0 +1,34 @@
+### Отримати всі заявки
+GET http://localhost:4002/api/applications
+
+### Отримати заявку за id
+GET http://localhost:4002/api/applications/6ace09e377cf298c6ba07c95
+
+### Створити нову заявку
+POST http://localhost:4002/api/applications
+Content-Type: application/json
+
+{
+  "name": "Микола",
+  "phone": "+380 99 955 49 33",
+  "comment": "Хочу швидко все організувати, без зайвих питань"
+}
+### Спроба створити заявку без телефону
+POST http://localhost:4002/api/applications
+Content-Type: application/json
+
+{
+  "name": "Микола"
+}
+### Оновити заявку
+PUT http://localhost:4002/api/applications/6ace09e377cf298c6ba07c95
+Content-Type: application/json
+
+{
+  "name": "Микола",
+  "phone": "+380 99 955 49 33",
+  "status": "in_progress"
+}
+
+### Видалити заявку
+DELETE http://localhost:4002/api/applications/6ace0acf77cf298c6ba07c9a

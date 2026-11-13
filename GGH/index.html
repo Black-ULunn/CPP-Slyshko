@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RIP — платформа організації ритуальних послуг</title>
+  <meta name="description" content="RIP об'єднує ритуальні бюро, кладовища та церкви в одному застосунку, щоб організація похорону вимагала менше дзвінків і часу.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap header-row">
+      <span class="wordmark">RIP</span>
+      <nav aria-label="Основна навігація">
+        <a href="#functions">Функції</a>
+        <a href="#apply">Подати заявку</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="wrap">
+                <h2>Коли треба організувати похорон,<br>не варто робити це по частинах</h2>
+                <p class="lede">
+                    «RIP» — єдина платформа, яка об'єднує ритуальні бюро, кладовища
+                    та церкви. Замість десятка окремих дзвінків — один спокійний процес,
+                    який можна пройти у зручному темпі.
+                </p>
+                <a class="btn" href="#apply" id="ctaButton">Подати заявку</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="hero-bg">
+            <div class="wrap">
+                <h2>Про застосунок</h2>
+                <p>
+                    «RIP» — це навчальний проєкт, він не є комерційним продуктом і не надає ритуальних послуг. 
+                    <br>Мета проєкту — продемонструвати, як можна спростити процес організації похорону.
+                </p>
+                <p>
+                    Організація похорону зазвичай означає окремі перемовини з ритуальним
+                    бюро, кладовищем і церквою — часто телефоном, часто в стані гострого
+                    стресу. «RIP» збирає ці кроки в одному місці: від вибору труни до
+                    бронювання місця на кладовищі, — щоб рідні могли приділити увагу
+                    одне одному, а не логістиці.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="functions" id="functions">
+        <div class="hero-bg">
+            <div class="wrap">
+                <h2>Функції</h2>
+                <ul class="function-list">
+                    <li>Пошук ритуальних бюро, кладовищ і церков</li>
+                    <li>Порівняння цін і послуг</li>
+                    <li>Бронювання послуг онлайн</li>
+                    <li>Автоматичне формування списку необхідних кроків</li>
+                    <li>Зручний чат для комунікації з постачальниками послуг</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="apply" id="apply">
+        <div class="hero-bg">
+            <div class="wrap">
+                <h2>Подати заявку</h2>
+                <p>
+                    Щоб подати заявку на організацію похорону, заповніть форму нижче.
+                    Ми зв'яжемося з вами найближчим часом, щоб обговорити деталі.
+                </p>
+                <form id="applicationForm" class="apply-form">
+                    <label for="name">Ім'я:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="surname"><br>Прізвище:</label>
+                    <input type="text" id="surname" name="surname" required>
+
+                    <label for="secondname"><br>По батькові:</label>
+                    <input type="text" id="secondname" name="secondname" required>
+
+                    <label><br>Тип клієнта:</label>
+                    <div class="client-type">
+                        <label>
+                            <input type="radio" id="relative" name="clientType" value="relative">
+                            <span>Родич</span>
+                        </label>
+                        <label>
+                            <input type="radio" id="notRelative" name="clientType" value="not-relative">
+                            <span>Не родич</span>
+                        </label>
+                    </div>
+                    <div class="custom-dropdown" data-dropdown>
+                        <input type="hidden" id="family" name="family">
+                        <button type="button" class="dropdown-trigger"aria-expanded="false">
+                            <span>Оберіть варіант</span>
+                            <span class="dropdown-arrow">⌄</span>
+                        </button>
+                        <div class="dropdown-menu">
+                            <button type="button" data-value="spouse">Чоловік/Дружина</button>
+                            <button type="button" data-value="parent">Батько/Мати</button>
+                            <button type="button" data-value="child">Син/Донька</button>
+                            <button type="button" data-value="sibling">Брат/Сестра</button>
+                            <button type="button" data-value="other">Інше</button>
+                        </div>
+                    </div>
+                    
+                    <div class="custom-dropdown" data-dropdown>
+                        <input type="hidden" id="relationType" name="relationType">
+                        <button type="button" class="dropdown-trigger" aria-expanded="false">
+                            <span>Оберіть варіант</span>
+                            <span class="dropdown-arrow">⌄</span>
+                        </button>
+                        <div class="dropdown-menu">
+                            <button type="button" data-value="friend">Друг</button>
+                            <button type="button" data-value="acquaintance">Знайомий</button>
+                            <button type="button" data-value="trusted">Довірена особа</button>
+                            <button type="button" data-value="other">Інше</button>
+                        </div>
+                    </div>
+
+                    
+
+                    <label for="email"><br>Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="phone"><br>Телефон:</label>
+                    <input type="tel" id="phone" name="phone" required>
+
+                    <label for="details"><br>Деталі заявки:<br></label>
+                    <textarea id="details" name="details" rows="4" required></textarea>
+
+                    <button type="submit" class="btn">Надіслати заявку</button>
+                </form>
+                <div class="orders">
+                    <h3>Нові замовлення: <span id="ordersCount">0</span></h3>
+                    <select id="ordersSelect">
+                        <option value="">Замовлень поки немає</option>
+                    </select>
+                    <button type="button" id="cancelOrder" class="cancel-btn">
+                        Скасувати замовлення
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Навчальний проєкт, лабораторна робота №1.2 з дисципліни "крос-платформне програмування".</p>
+    </div>
+  </footer>
+
+  <script src="index.js"></script>
+</body>
+</html>
